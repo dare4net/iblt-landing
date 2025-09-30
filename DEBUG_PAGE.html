@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>IBLT University - DEBUG MODE</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#ff6600",
+            "background-light": "#ffffff",
+            "background-dark": "#111827",
+            "text-light": "#374151",
+            "text-dark": "#e5e7eb",
+            "card-light": "#f9fafb",
+            "card-dark": "#1f2937",
+            "border-light": "#e5e7eb",
+            "border-dark": "#374151",
+          },
+          fontFamily: { display: ["Avenir Next", "sans-serif"] },
+          borderRadius: { DEFAULT: "0.5rem" },
+        },
+      },
+    }
+    
+    // Debug logging
+    console.log('%c=== IBLT DEBUG MODE ===', 'color: #ff6600; font-size: 20px; font-weight: bold;');
+    console.log('Page loaded at:', new Date().toISOString());
+  </script>
+  <script src="assets/js/include.js"></script>
+  
+  <script>
+    // Enhanced debug logging
+    window.addEventListener('partials:loaded', function() {
+      console.log('%c✅ Partials loaded successfully!', 'color: green; font-weight: bold;');
+      console.log('Hero section found:', !!document.querySelector('.hero-typewriter-h2'));
+      console.log('Welcome section found:', !!document.querySelector('[class*="Welcome"]'));
+      console.log('All sections:', document.querySelectorAll('section').length);
+      
+      // Check for text content
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, i) => {
+        const textContent = section.textContent.trim();
+        console.log(`Section ${i+1}: ${textContent.substring(0, 50)}...`);
+      });
+    });
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300">
+
+<div style="position: fixed; top: 0; left: 0; right: 0; background: #ff6600; color: white; padding: 10px; text-align: center; z-index: 9999; font-weight: bold;">
+  🔧 DEBUG MODE - Check browser console (F12) for details
+</div>
+
+<div style="padding-top: 50px;">
+  <!-- Header -->
+  <div data-include="partials/header.html"></div>
+
+  <!-- Hero Section -->
+  <div data-include="partials/hero.html"></div>
+
+  <!-- Features Section -->
+  <div data-include="partials/features.html"></div>
+
+  <!-- Welcome Section -->
+  <div data-include="partials/welcome.html"></div>
+
+  <!-- Programs Section -->
+  <div data-include="partials/programs.html"></div>
+
+  <!-- Admissions Section -->
+  <div data-include="partials/admissions.html"></div>
+
+  <!-- Contact Section -->
+  <div data-include="partials/contact.html"></div>
+
+  <!-- Partners Section -->
+  <div data-include="partials/partners.html"></div>
+
+  <!-- Newsletter Section -->
+  <div data-include="partials/newsletter.html"></div>
+
+  <!-- Footer -->
+  <div data-include="partials/footer.html"></div>
+</div>
+
+<script>
+  console.log('Body content loaded, waiting for includes...');
+</script>
+
+<!-- Temporarily disable main.js to see if it's causing issues -->
+<!-- <script src="assets/js/main.js"></script> -->
+
+</body>
+</html>

@@ -6,11 +6,30 @@
     var promises = Array.prototype.map.call(nodes, function (el) {
       var url = el.getAttribute('data-include');
       if (!url) return Promise.resolve();
-      return fetch(url)
-        .then(function (res) { return res.text(); })
-        .then(function (html) { el.innerHTML = html; })
-        .catch(function (err) { console.error('Include failed for', url, err); });
+      
+      // Try XMLHttpRequest for better file:// protocol support
+      return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200 || xhr.status === 0) { // 0 for file:// protocol
+              el.innerHTML = xhr.responseText;
+              resolve();
+            } else {
+              console.error('Include failed for', url, 'Status:', xhr.status);
+              reject(new Error('Failed to load ' + url));
+            }
+          }
+        };
+        xhr.onerror = function() {
+          console.error('Include error for', url);
+          reject(new Error('Network error for ' + url));
+        };
+        xhr.send();
+      });
     });
+    
     return Promise.all(promises).then(function () {
       // Notify that partials have been injected
       try {

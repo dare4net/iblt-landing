@@ -1,62 +1,405 @@
-<header id="site-header" class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 right-0 z-50">
+<header id="site-header" class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <!-- Top Bar -->
-  <div class="hb-topbar text-white text-[11px] tracking-wide py-2">
+  <div class="hb-topbar text-white text-[11px] tracking-wide py-2.5">
     <span class="hb-sweep" aria-hidden="true"></span>
     <div class="container mx-auto px-4 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-1">email</span> info@iblt.com
-        </span>
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-1">call</span> +1 234 567 890
-        </span>
+      <div class="flex items-center space-x-6">
+        <a href="mailto:info@iblt.com" class="flex items-center hover:text-white transition-colors">
+          <span class="material-icons text-sm mr-1.5">email</span> info@iblt.com
+        </a>
+        <a href="tel:+1234567890" class="flex items-center hover:text-white transition-colors">
+          <span class="material-icons text-sm mr-1.5">call</span> +1 234 567 890
+        </a>
       </div>
-      <div class="hidden md:flex items-center space-x-4">
-        <a class="hover:text-primary" href="#">LOGIN</a>
-        <a class="hover:text-primary" href="#">REGISTER</a>
+      <div class="hidden md:flex items-center space-x-6">
+        <a class="hover:text-white transition-colors" href="#">LOGIN</a>
+        <a class="bg-white/20 hover:bg-white/30 px-4 py-1 rounded-full transition-all" href="#">REGISTER</a>
       </div>
     </div>
   </div>
   
   
-  <nav class="container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
-    <div class="flex items-center">
-      <img src="assets/images/logo.jpg" alt="IBLT University" class="h-10 w-auto mr-2" />
-      <span class="text-2xl font-bold text-gray-800 dark:text-white">IBLT</span><span class="text-2xl font-light text-gray-500 dark:text-gray-400">UNIVERSITY</span>
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center group">
+      <img src="assets/images/logo.jpg" alt="IBLT University" class="h-12 w-auto mr-3 transition-transform group-hover:scale-105" />
+      <div class="flex flex-col">
+        <div>
+          <span class="text-2xl font-bold text-gray-800 dark:text-white">IBLT</span><span class="text-2xl font-light text-gray-500 dark:text-gray-400">UNIVERSITY</span>
+        </div>
+        <span class="text-[10px] text-gray-500 dark:text-gray-400 tracking-wider">Excellence in Education</span>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center space-x-1">
+      <a class="relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors group" href="index.html">
+        <span>HOME</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+      </a>
+      
+      <!-- About Us with Dropdown -->
+      <div class="relative group">
+        <a class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors cursor-pointer" href="about.html">
+          <span>ABOUT US</span>
+          <span class="material-icons text-sm">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div class="py-2">
+            <a href="about.html" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">history_edu</span>
+              <span>Our History</span>
+            </a>
+            <a href="about.html#mission" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">flag</span>
+              <span>Mission & Vision</span>
+            </a>
+            <a href="about.html#leadership" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">business_center</span>
+              <span>Leadership</span>
+            </a>
+            <a href="about.html#accreditation" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">verified</span>
+              <span>Accreditation</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Programs with Dropdown -->
+      <div class="relative group">
+        <a class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors cursor-pointer" href="courses.html">
+          <span>PROGRAMS</span>
+          <span class="material-icons text-sm">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div class="py-2">
+            <a href="courses.html#masters" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">school</span>
+              <span>Master's Degrees</span>
+            </a>
+            <a href="courses.html#bachelors" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">menu_book</span>
+              <span>Bachelor's Degrees</span>
+            </a>
+            <a href="courses.html#distance" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">laptop_chromebook</span>
+              <span>Distance Learning</span>
+            </a>
+            <a href="courses.html#certificates" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">workspace_premium</span>
+              <span>Certificates</span>
+            </a>
+            <a href="courses.html#foundation" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">foundation</span>
+              <span>Foundation Programs</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Admissions with Dropdown -->
+      <div class="relative group">
+        <a class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors cursor-pointer" href="pages.html">
+          <span>ADMISSIONS</span>
+          <span class="material-icons text-sm">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 mt-2 w-60 bg-white dark:bg-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div class="py-2">
+            <a href="pages.html#apply" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">how_to_reg</span>
+              <span>How to Apply</span>
+            </a>
+            <a href="pages.html#requirements" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">checklist</span>
+              <span>Requirements</span>
+            </a>
+            <a href="pages.html#tuition" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">payments</span>
+              <span>Tuition & Fees</span>
+            </a>
+            <a href="pages.html#scholarships" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">card_giftcard</span>
+              <span>Scholarships</span>
+            </a>
+            <a href="pages.html#international" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">flight</span>
+              <span>International Students</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <a class="relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors group" href="teachers.html">
+        <span>FACULTY</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+      </a>
+      
+      <!-- Campus Life with Dropdown -->
+      <div class="relative group">
+        <a class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors cursor-pointer" href="shop.html">
+          <span>CAMPUS LIFE</span>
+          <span class="material-icons text-sm">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div class="py-2">
+            <a href="shop.html#housing" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">home</span>
+              <span>Housing</span>
+            </a>
+            <a href="shop.html#dining" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">restaurant</span>
+              <span>Dining</span>
+            </a>
+            <a href="shop.html#clubs" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">groups</span>
+              <span>Student Clubs</span>
+            </a>
+            <a href="shop.html#sports" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">sports_soccer</span>
+              <span>Sports & Athletics</span>
+            </a>
+            <a href="shop.html#library" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors">
+              <span class="material-icons text-lg">local_library</span>
+              <span>Library</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <a class="relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors group" href="blog.html">
+        <span>NEWS & EVENTS</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+      </a>
+      <a class="relative px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors group" href="contact.html">
+        <span>CONTACT</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+      </a>
     </div>
-    <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="index.html">HOME</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="about.html">ABOUT</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="courses.html">COURSES</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="teachers.html">TEACHERS</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="shop.html">SHOP</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="pages.html">PAGES</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="blog.html">BLOG</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="contact.html">CONTACT</a>
-    </div>
-    <button id="mobile-menu-toggle" class="md:hidden flex items-center" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
-      <span class="material-icons text-gray-800 dark:text-white menu-icon">menu</span>
-      <span class="material-icons text-gray-800 dark:text-white close-icon hidden">close</span>
+    <button id="mobile-menu-toggle" class="lg:hidden flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+      <span class="material-icons text-gray-800 dark:text-white menu-icon text-3xl">menu</span>
+      <span class="material-icons text-gray-800 dark:text-white close-icon hidden text-3xl">close</span>
     </button>
   </nav>
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hidden overflow-hidden transition-all duration-1000 ease-in-out">
-    <div class="container mx-auto px-4 py-3 text-sm">
-      <div id="mobile-menu-content" class="transition-all duration-700 ease-in-out opacity-0 translate-y-2">
-      <nav class="flex flex-col">
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="index.html"><span class="material-icons text-[20px]">home</span><span>HOME</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="about.html"><span class="material-icons text-[20px]">info</span><span>ABOUT</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="courses.html"><span class="material-icons text-[20px]">school</span><span>COURSES</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="teachers.html"><span class="material-icons text-[20px]">groups</span><span>TEACHERS</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="shop.html"><span class="material-icons text-[20px]">shopping_bag</span><span>SHOP</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="pages.html"><span class="material-icons text-[20px]">layers</span><span>PAGES</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="blog.html"><span class="material-icons text-[20px]">article</span><span>BLOG</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="contact.html"><span class="material-icons text-[20px]">call</span><span>CONTACT</span></a>
-        <div class="h-px my-2 bg-gray-200 dark:bg-gray-700"></div>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-primary hover:text-primary hover:bg-primary/10 rounded-md" href="login.html"><span class="material-icons text-[20px]">login</span><span>LOGIN</span></a>
-        <a class="inline-flex items-center gap-3 px-3 py-2 text-primary hover:text-primary hover:bg-primary/10 rounded-md" href="register.html"><span class="material-icons text-[20px]">person_add</span><span>REGISTER</span></a>
+  <div id="mobile-menu" class="lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md hidden overflow-hidden transition-all duration-500 ease-out shadow-xl">
+    <div class="container mx-auto px-4 py-6">
+      <div id="mobile-menu-content" class="transition-all duration-500 ease-out opacity-0 -translate-y-4">
+      <nav class="flex flex-col space-y-1">
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 transform hover:translate-x-2 font-medium" href="index.html" style="animation-delay: 50ms">
+          <span class="material-icons text-[22px] transition-transform group-hover:scale-110">home</span>
+          <span>HOME</span>
+        </a>
+        
+        <!-- About Us Dropdown -->
+        <div class="mobile-menu-item mobile-dropdown" style="animation-delay: 100ms">
+          <button class="w-full inline-flex items-center justify-between gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 font-medium" onclick="toggleMobileDropdown(this)">
+            <div class="flex items-center gap-4">
+              <span class="material-icons text-[22px]">info</span>
+              <span>ABOUT US</span>
+            </div>
+            <span class="material-icons text-[20px] dropdown-arrow transition-transform duration-300">expand_more</span>
+          </button>
+          <div class="dropdown-content pl-12 pr-4 pt-2 space-y-1">
+            <a href="about.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">history_edu</span>
+              <span>Our History</span>
+            </a>
+            <a href="about.html#mission" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">flag</span>
+              <span>Mission & Vision</span>
+            </a>
+            <a href="about.html#leadership" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">business_center</span>
+              <span>Leadership</span>
+            </a>
+            <a href="about.html#accreditation" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">verified</span>
+              <span>Accreditation</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Programs Dropdown -->
+        <div class="mobile-menu-item mobile-dropdown" style="animation-delay: 150ms">
+          <button class="w-full inline-flex items-center justify-between gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 font-medium" onclick="toggleMobileDropdown(this)">
+            <div class="flex items-center gap-4">
+              <span class="material-icons text-[22px]">school</span>
+              <span>PROGRAMS</span>
+            </div>
+            <span class="material-icons text-[20px] dropdown-arrow transition-transform duration-300">expand_more</span>
+          </button>
+          <div class="dropdown-content pl-12 pr-4 pt-2 space-y-1">
+            <a href="courses.html#masters" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">school</span>
+              <span>Master's Degrees</span>
+            </a>
+            <a href="courses.html#bachelors" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">menu_book</span>
+              <span>Bachelor's Degrees</span>
+            </a>
+            <a href="courses.html#distance" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">laptop_chromebook</span>
+              <span>Distance Learning</span>
+            </a>
+            <a href="courses.html#certificates" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">workspace_premium</span>
+              <span>Certificates</span>
+            </a>
+            <a href="courses.html#foundation" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">foundation</span>
+              <span>Foundation Programs</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Admissions Dropdown -->
+        <div class="mobile-menu-item mobile-dropdown" style="animation-delay: 200ms">
+          <button class="w-full inline-flex items-center justify-between gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 font-medium" onclick="toggleMobileDropdown(this)">
+            <div class="flex items-center gap-4">
+              <span class="material-icons text-[22px]">description</span>
+              <span>ADMISSIONS</span>
+            </div>
+            <span class="material-icons text-[20px] dropdown-arrow transition-transform duration-300">expand_more</span>
+          </button>
+          <div class="dropdown-content pl-12 pr-4 pt-2 space-y-1">
+            <a href="pages.html#apply" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">how_to_reg</span>
+              <span>How to Apply</span>
+            </a>
+            <a href="pages.html#requirements" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">checklist</span>
+              <span>Requirements</span>
+            </a>
+            <a href="pages.html#tuition" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">payments</span>
+              <span>Tuition & Fees</span>
+            </a>
+            <a href="pages.html#scholarships" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">card_giftcard</span>
+              <span>Scholarships</span>
+            </a>
+            <a href="pages.html#international" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">flight</span>
+              <span>International Students</span>
+            </a>
+          </div>
+        </div>
+        
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 transform hover:translate-x-2 font-medium" href="teachers.html" style="animation-delay: 250ms">
+          <span class="material-icons text-[22px] transition-transform group-hover:scale-110">groups</span>
+          <span>FACULTY</span>
+        </a>
+        
+        <!-- Campus Life Dropdown -->
+        <div class="mobile-menu-item mobile-dropdown" style="animation-delay: 300ms">
+          <button class="w-full inline-flex items-center justify-between gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 font-medium" onclick="toggleMobileDropdown(this)">
+            <div class="flex items-center gap-4">
+              <span class="material-icons text-[22px]">event</span>
+              <span>CAMPUS LIFE</span>
+            </div>
+            <span class="material-icons text-[20px] dropdown-arrow transition-transform duration-300">expand_more</span>
+          </button>
+          <div class="dropdown-content pl-12 pr-4 pt-2 space-y-1">
+            <a href="shop.html#housing" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">home</span>
+              <span>Housing</span>
+            </a>
+            <a href="shop.html#dining" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">restaurant</span>
+              <span>Dining</span>
+            </a>
+            <a href="shop.html#clubs" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">groups</span>
+              <span>Student Clubs</span>
+            </a>
+            <a href="shop.html#sports" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">sports_soccer</span>
+              <span>Sports & Athletics</span>
+            </a>
+            <a href="shop.html#library" class="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+              <span class="material-icons text-[18px]">local_library</span>
+              <span>Library</span>
+            </a>
+          </div>
+        </div>
+        
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 transform hover:translate-x-2 font-medium" href="blog.html" style="animation-delay: 350ms">
+          <span class="material-icons text-[22px] transition-transform group-hover:scale-110">newspaper</span>
+          <span>NEWS & EVENTS</span>
+        </a>
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent rounded-xl transition-all duration-300 transform hover:translate-x-2 font-medium" href="contact.html" style="animation-delay: 400ms">
+          <span class="material-icons text-[22px] transition-transform group-hover:scale-110">contact_mail</span>
+          <span>CONTACT</span>
+        </a>
+        
+        <div class="h-px my-3 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent"></div>
+        
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 text-primary hover:text-white hover:bg-primary rounded-xl transition-all duration-300 transform hover:scale-105 font-semibold shadow-sm hover:shadow-md" href="login.html" style="animation-delay: 450ms">
+          <span class="material-icons text-[22px]">login</span>
+          <span>STUDENT PORTAL</span>
+        </a>
+        <a class="mobile-menu-item inline-flex items-center gap-4 px-4 py-3.5 bg-primary text-white hover:bg-blue-600 rounded-xl transition-all duration-300 transform hover:scale-105 font-semibold shadow-md hover:shadow-lg" href="register.html" style="animation-delay: 500ms">
+          <span class="material-icons text-[22px]">how_to_reg</span>
+          <span>APPLY NOW</span>
+        </a>
       </nav>
       </div>
     </div>
   </div>
 </header>
+
+<style>
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-item {
+  opacity: 0;
+  animation: slideInDown 0.4s ease-out forwards;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.dropdown-content.show {
+  max-height: 500px;
+  opacity: 1;
+}
+</style>
+
+<script>
+function toggleMobileDropdown(button) {
+  const dropdown = button.nextElementSibling;
+  const arrow = button.querySelector('.dropdown-arrow');
+  const isOpen = dropdown.classList.contains('show');
+  
+  // Close all other dropdowns
+  document.querySelectorAll('.mobile-dropdown .dropdown-content').forEach(content => {
+    if (content !== dropdown) {
+      content.classList.remove('show');
+      const otherArrow = content.previousElementSibling.querySelector('.dropdown-arrow');
+      if (otherArrow) {
+        otherArrow.style.transform = 'rotate(0deg)';
+      }
+    }
+  });
+  
+  // Toggle current dropdown
+  if (isOpen) {
+    dropdown.classList.remove('show');
+    arrow.style.transform = 'rotate(0deg)';
+  } else {
+    dropdown.classList.add('show');
+    arrow.style.transform = 'rotate(180deg)';
+  }
+}
+</script>

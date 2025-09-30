@@ -116,26 +116,123 @@
 /* Typewriter caret */
 .typewriter {
   border-right: 2px solid rgba(255,255,255,0.9);
-  white-space: normal;     /* allow wrapping */
-  overflow: visible;       /* don't clip lines */
-  display: inline;         /* allow wrapping within text */
-  word-break: break-word;  /* wrap long words on mobile */
-  padding-right: 4px; /* keep caret visible even when empty */
-  line-height: 1.1;  /* stable caret height */
+  display: inline;         /* inline to allow natural wrapping */
+  padding-right: 4px;      /* keep caret visible even when empty */
   animation: caret-blink 1s step-end infinite;
 }
 
-/* Prominent styling for the dynamic ending */
+/* Keep the prefix span stable as well */
+#typewriter-prefix {
+  display: inline;         /* inline to allow natural wrapping */
+}
+
+/* Completely isolate animated text on mobile */
+@media (max-width: 767px) {
+  .typewriter {
+    display: inline-block; /* Keep inline but on new line */
+    min-height: 2.5rem;    /* Fixed height to prevent movement */
+    margin-top: 0.5rem;    /* Space from line above */
+    vertical-align: top;   /* Align caret properly */
+    line-height: 2.5rem;   /* Match min-height for caret positioning */
+  }
+}
+
+/* Fix h2 container height to prevent layout shifts */
+.hero-typewriter-h2 {
+  /* Allow wrapping on mobile, reserve space for 2 lines */
+  min-height: 7rem;     /* 2 lines on mobile for wrapped text */
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-typewriter-h2 {
+    min-height: 4.5rem; /* 1 line on desktop (wider screen, no wrap) */
+  }
+}
+
+/* Mobile: smaller text, vertical center, left align, CTAs bottom */
+@media (max-width: 767px) {
+  /* Vertically center the container, keep left alignment */
+  section[style*="hero.jpg"] > div:last-of-type {
+    justify-content: space-between !important; /* Spread content vertically */
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  /* Smaller text sizes - vertically centered */
+  section[style*="hero.jpg"] h1 {
+    font-size: 1.75rem;   /* Smaller text */
+    line-height: 1.3;
+    margin-top: auto;     /* Push text to vertical center */
+    margin-bottom: 0;
+  }
+  
+  section[style*="hero.jpg"] .hero-typewriter-h2 {
+    font-size: 1.75rem;   /* Match h1 size */
+    line-height: 1.3;
+    min-height: 4.5rem;   /* Adjust for smaller 2-line text */
+    margin-bottom: auto;  /* Space between text and CTAs */
+  }
+  
+  /* Push CTAs closer to bottom */
+  section[style*="hero.jpg"] .flex.items-center.gap-3 {
+    margin-top: 0;
+    margin-bottom: 0;      /* Keep at bottom */
+    padding-bottom: 0.75rem; /* Very close to edge */
+  }
+}
+
 .typewriter-accent {
   color: #ff6600;      /* matches Tailwind primary */
   font-weight: 700;
 }
-
 @keyframes caret-blink {
   0%, 100% { border-color: rgba(255,255,255,0.9); }
   50% { border-color: transparent; }
 }
 
+/* Split-on-hover CTA buttons */
+.btn-split {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* ensure proper stacking context */
+  will-change: transform;
+}
+.btn-split > span { position: relative; z-index: 2; }
+.btn-split::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+.btn-split:hover::after { transform: translateX(0); }
+ 
+/* Primary: base primary -> darker sweep */
+.btn-primary { background: #ff6600; color: #ffffff; }
+.btn-primary::after { background: #c44d00; }
+ 
+/* Secondary: base white -> light gray sweep */
+.btn-secondary { background: #ffffff; color: #ff6600; }
+.btn-secondary::after { background: #ff6600; }
+.btn-secondary:hover { color: #ffffff; }
+
+/* Mobile adjustments: smaller hero CTAs */
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary {
+    font-size: 0.8rem;          /* reduce text size */
+    padding: 0.5rem 0.75rem;    /* ~py-2 px-3 - smaller padding */
+    font-weight: 600;           /* slightly lighter weight for smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary, .btn-secondary {
+    font-size: 0.75rem;         /* even smaller text on very small screens */
+    padding: 0.45rem 0.65rem;   /* even tighter padding */
+  }
+}
 
 .hb-topbar {
   position: relative;

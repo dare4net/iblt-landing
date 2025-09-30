@@ -319,9 +319,13 @@
     setTimeout(tick, initialDelay);
   }
 
+  // Wait for partials to load
+  window.addEventListener('partials:loaded', start);
+  
+  // Fallback if partials already loaded
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(start, 500); // Give partials time to load
+    });
   }
 })();

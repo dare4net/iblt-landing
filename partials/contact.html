@@ -1,0 +1,113 @@
+<!-- Contact Us Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-800">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          Get in <span class="text-primary">Touch</span>
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 md:p-12 animate-on-scroll">
+        <form class="space-y-6">
+          <!-- Name Field -->
+          <div>
+            <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              Full Name <span class="text-primary">*</span>
+            </label>
+            <div class="relative">
+              <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">person</span>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                required
+                class="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                placeholder="Enter your full name"
+              />
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              Email Address <span class="text-primary">*</span>
+            </label>
+            <div class="relative">
+              <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">email</span>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                required
+                class="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                placeholder="your.email@example.com"
+              />
+            </div>
+          </div>
+
+          <!-- Message Field -->
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              Message <span class="text-primary">*</span>
+            </label>
+            <div class="relative">
+              <span class="material-icons absolute left-4 top-4 text-gray-400">message</span>
+              <textarea 
+                id="message" 
+                name="message"
+                rows="6"
+                required
+                class="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none"
+                placeholder="Tell us what's on your mind..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center pt-4">
+            <button 
+              type="submit" 
+              class="btn-split btn-primary px-10 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center"
+            >
+              <span class="material-icons mr-2">send</span>
+              <span>SEND MESSAGE</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex items-start space-x-3">
+            <span class="material-icons text-primary text-2xl">location_on</span>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Visit Us</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">123 University Ave, City, Country</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <span class="material-icons text-primary text-2xl">phone</span>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Call Us</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">+1 (234) 567-8900</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <span class="material-icons text-primary text-2xl">schedule</span>
+            <div>
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-1">Office Hours</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Mon-Fri: 9AM - 5PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
