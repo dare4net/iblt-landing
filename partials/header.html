@@ -1,0 +1,62 @@
+<header id="site-header" class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 right-0 z-50">
+  <!-- Top Bar -->
+  <div class="hb-topbar text-white text-[11px] tracking-wide py-2">
+    <span class="hb-sweep" aria-hidden="true"></span>
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-1">email</span> info@iblt.com
+        </span>
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-1">call</span> +1 234 567 890
+        </span>
+      </div>
+      <div class="hidden md:flex items-center space-x-4">
+        <a class="hover:text-primary" href="#">LOGIN</a>
+        <a class="hover:text-primary" href="#">REGISTER</a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <nav class="container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
+    <div class="flex items-center">
+      <img src="assets/images/logo.jpg" alt="IBLT University" class="h-10 w-auto mr-2" />
+      <span class="text-2xl font-bold text-gray-800 dark:text-white">IBLT</span><span class="text-2xl font-light text-gray-500 dark:text-gray-400">UNIVERSITY</span>
+    </div>
+    <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="index.html">HOME</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="about.html">ABOUT</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="courses.html">COURSES</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="teachers.html">TEACHERS</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="shop.html">SHOP</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="pages.html">PAGES</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="blog.html">BLOG</a>
+      <a class="text-gray-600 dark:text-gray-300 hover:text-primary" href="contact.html">CONTACT</a>
+    </div>
+    <button id="mobile-menu-toggle" class="md:hidden flex items-center" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+      <span class="material-icons text-gray-800 dark:text-white menu-icon">menu</span>
+      <span class="material-icons text-gray-800 dark:text-white close-icon hidden">close</span>
+    </button>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hidden overflow-hidden transition-all duration-1000 ease-in-out">
+    <div class="container mx-auto px-4 py-3 text-sm">
+      <div id="mobile-menu-content" class="transition-all duration-700 ease-in-out opacity-0 translate-y-2">
+      <nav class="flex flex-col">
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="index.html"><span class="material-icons text-[20px]">home</span><span>HOME</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="about.html"><span class="material-icons text-[20px]">info</span><span>ABOUT</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="courses.html"><span class="material-icons text-[20px]">school</span><span>COURSES</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="teachers.html"><span class="material-icons text-[20px]">groups</span><span>TEACHERS</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="shop.html"><span class="material-icons text-[20px]">shopping_bag</span><span>SHOP</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="pages.html"><span class="material-icons text-[20px]">layers</span><span>PAGES</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="blog.html"><span class="material-icons text-[20px]">article</span><span>BLOG</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md" href="contact.html"><span class="material-icons text-[20px]">call</span><span>CONTACT</span></a>
+        <div class="h-px my-2 bg-gray-200 dark:bg-gray-700"></div>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-primary hover:text-primary hover:bg-primary/10 rounded-md" href="login.html"><span class="material-icons text-[20px]">login</span><span>LOGIN</span></a>
+        <a class="inline-flex items-center gap-3 px-3 py-2 text-primary hover:text-primary hover:bg-primary/10 rounded-md" href="register.html"><span class="material-icons text-[20px]">person_add</span><span>REGISTER</span></a>
+      </nav>
+      </div>
+    </div>
+  </div>
+</header>

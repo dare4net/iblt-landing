@@ -1,0 +1,171 @@
+/* JS-driven topbar animation */
+.topbar-ani {
+  position: relative;
+  overflow: hidden;
+  background: #ff6600; /* default to primary in case JS fails */
+}
+.topbar-ani.topbar-start { background: #ffffff; }
+.topbar-ani > * { position: relative; z-index: 2; }
+.topbar-fill {
+  position: absolute;
+  inset: 0;
+  background: #ff6600; /* primary */
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+  will-change: transform, opacity;
+  transform: translateZ(0) scaleX(0);
+}
+.topbar-animating .topbar-fill {
+  animation: topbar-fill-sweep 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+@keyframes topbar-fill-sweep {
+  0% { transform: scaleX(0); opacity: 0; }
+  60% { transform: scaleX(1); opacity: 0.7; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar-animating .topbar-fill { animation: none; transform: scaleX(1); opacity: 1; }
+}
+.topbar-ani.topbar-ani-done .topbar-fill { transform: scaleX(1); opacity: 1; }
+/* Header top bar sweep (CSS-only, mobile-friendly) */
+.hb-topbar {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff; /* start white */
+}
+.hb-topbar > * { position: relative; z-index: 2; }
+.hb-topbar .hb-sweep {
+  position: absolute;
+  inset: 0;
+  background: #ff6600; /* primary */
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+  animation: hb-sweep-fill 1.2s cubic-bezier(0.22,1,0.36,1) 0.6s forwards;
+}
+@keyframes hb-sweep-fill {
+  0% { transform: scaleX(0); opacity: 0; }
+  60% { transform: scaleX(1); opacity: 0.7; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb-topbar .hb-sweep { animation: none; transform: scaleX(1); opacity: 1; }
+}
+/* Local fonts */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../fonts/AvenirNext-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Alias lighter weight to Regular to avoid mobile fallback */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../fonts/AvenirNext-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../fonts/AvenirNext-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../fonts/AvenirNext-DemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Map bold (700) to DemiBold file so Tailwind font-bold works */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../fonts/AvenirNext-DemiBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom animations and small utilities extracted from code.html */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animated {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* Typewriter caret */
+.typewriter {
+  border-right: 2px solid rgba(255,255,255,0.9);
+  white-space: normal;     /* allow wrapping */
+  overflow: visible;       /* don't clip lines */
+  display: inline;         /* allow wrapping within text */
+  word-break: break-word;  /* wrap long words on mobile */
+  padding-right: 4px; /* keep caret visible even when empty */
+  line-height: 1.1;  /* stable caret height */
+  animation: caret-blink 1s step-end infinite;
+}
+
+/* Prominent styling for the dynamic ending */
+.typewriter-accent {
+  color: #ff6600;      /* matches Tailwind primary */
+  font-weight: 700;
+}
+
+@keyframes caret-blink {
+  0%, 100% { border-color: rgba(255,255,255,0.9); }
+  50% { border-color: transparent; }
+}
+
+
+.hb-topbar {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff; /* starts white */
+}
+
+.hb-topbar > * { position: relative; z-index: 2; }
+
+.hb-topbar .hb-sweep {
+  position: absolute;
+  inset: 0;
+  background: #ff6600; /* primary */
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+  animation: hb-sweep-fill 1.2s cubic-bezier(0.22,1,0.36,1) 0.6s forwards;
+}
+
+@keyframes hb-sweep-fill {
+  0% { transform: scaleX(0); opacity: 0; }
+  60% { transform: scaleX(1); opacity: 0.7; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hb-topbar .hb-sweep { 
+    animation: none; 
+    transform: scaleX(1); 
+    opacity: 1; 
+  }
+}
