@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Animation Test - IBLT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="assets/css/style.css" rel="stylesheet"/>
+  <style>
+    body { background: #f3f4f6; padding: 2rem; }
+    .test-box { 
+      background: white; 
+      padding: 3rem; 
+      margin: 3rem 0; 
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .label {
+      display: inline-block;
+      background: #ff6600;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; font-size: 2rem; font-weight: bold; margin-bottom: 2rem;">
+    🎬 Animation Test Page - Scroll Down
+  </h1>
+  
+  <div class="test-box animate-on-scroll" data-animation="slide-up">
+    <span class="label">Slide Up</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box slides up from bottom</h2>
+    <p>Keep scrolling to see more animations...</p>
+  </div>
+  
+  <div class="test-box animate-on-scroll" data-animation="slide-left">
+    <span class="label">Slide Left</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box slides in from the left</h2>
+    <p>Left to right animation</p>
+  </div>
+  
+  <div class="test-box animate-on-scroll" data-animation="slide-right">
+    <span class="label">Slide Right</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box slides in from the right</h2>
+    <p>Right to left animation</p>
+  </div>
+  
+  <div class="test-box animate-on-scroll" data-animation="scale-in">
+    <span class="label">Scale In (Bounce)</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box scales in with bounce</h2>
+    <p>Notice the elastic bounce effect!</p>
+  </div>
+  
+  <div class="test-box animate-on-scroll" data-animation="fade-in">
+    <span class="label">Fade In</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box fades in smoothly</h2>
+    <p>Simple opacity animation</p>
+  </div>
+  
+  <div class="test-box animate-on-scroll" data-animation="rotate-in">
+    <span class="label">Rotate In</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box rotates and scales in</h2>
+    <p>Dramatic entrance!</p>
+  </div>
+  
+  <div class="test-box parallax" data-speed="0.3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <span class="label" style="background: white; color: #764ba2;">Parallax Effect</span>
+    <h2 style="font-size: 1.5rem; font-weight: bold;">This box has parallax scrolling</h2>
+    <p>It moves slower than your scroll - creating depth!</p>
+  </div>
+  
+  <div style="display: flex; gap: 1rem; margin: 3rem 0;">
+    <div class="test-box animate-on-scroll" data-animation="scale-in" data-delay="1" style="flex: 1;">
+      <span class="label">Stagger 1</span>
+      <p>Delay: 0.1s</p>
+    </div>
+    <div class="test-box animate-on-scroll" data-animation="scale-in" data-delay="2" style="flex: 1;">
+      <span class="label">Stagger 2</span>
+      <p>Delay: 0.2s</p>
+    </div>
+    <div class="test-box animate-on-scroll" data-animation="scale-in" data-delay="3" style="flex: 1;">
+      <span class="label">Stagger 3</span>
+      <p>Delay: 0.3s</p>
+    </div>
+  </div>
+  
+  <div style="text-align: center; padding: 3rem; background: white; border-radius: 1rem; margin: 3rem 0;">
+    <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">✅ All Tests Complete!</h2>
+    <p>Open Console (F12) to see initialization logs</p>
+  </div>
+
+<script>
+// Simple animation system for testing
+(function () {
+  let scrollElements, parallaxElements;
+  let initialized = false;
+  
+  const elementInView = (el, dividend = 1.25) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+  };
+  
+  const displayScrollElement = (element) => {
+    const animationType = element.getAttribute('data-animation');
+    
+    if (animationType) {
+      element.classList.add('animated', animationType);
+    } else {
+      element.classList.add('animated', 'slide-up');
+    }
+  };
+  
+  const handleParallax = () => {
+    if (!parallaxElements || parallaxElements.length === 0) return;
+    const scrolled = window.pageYOffset;
+    
+    parallaxElements.forEach((el) => {
+      const speed = parseFloat(el.getAttribute('data-speed')) || 0.5;
+      const yPos = -(scrolled * speed);
+      el.style.transform = `translateY(${yPos}px)`;
+    });
+  };
+  
+  const handleScrollAnimation = () => {
+    if (!scrollElements || scrollElements.length === 0) return;
+    scrollElements.forEach((el) => {
+      if (elementInView(el, 1.25)) {
+        displayScrollElement(el);
+      }
+    });
+  };
+  
+  let ticking = false;
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollAnimation();
+        handleParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  
+  const init = () => {
+    if (initialized) return;
+    initialized = true;
+    
+    scrollElements = document.querySelectorAll('.animate-on-scroll');
+    parallaxElements = document.querySelectorAll('.parallax');
+    
+    console.log('🎬 Test Animation System Initialized:', {
+      scrollElements: scrollElements.length,
+      parallaxElements: parallaxElements.length
+    });
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScrollAnimation();
+    handleParallax();
+  };
+  
+  window.addEventListener('load', init);
+})();
+</script>
+
+</body>
+</html>

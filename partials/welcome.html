@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       
       <!-- Left Column - Text Content -->
-      <div class="space-y-6 animate-on-scroll">
+      <div class="space-y-6 animate-on-scroll" data-animation="slide-left">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
           Welcome to <span class="text-primary">IBLT</span>
         </h2>
@@ -66,7 +66,7 @@
       </div>
       
       <!-- Right Column - Image -->
-      <div class="animate-on-scroll">
+      <div class="animate-on-scroll" data-animation="slide-right">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
           <img 
             src="assets/images/hero.jpg" 
@@ -77,7 +77,7 @@
         </div>
         
         <!-- Stats Overlay -->
-        <div id="stats-container" class="grid grid-cols-3 gap-4 mt-6">
+        <div id="stats-container" class="grid grid-cols-3 gap-4 mt-6 animate-on-scroll" data-animation="fade-in">
           <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md text-center">
             <div class="text-xl md:text-2xl font-bold text-primary">
               <span class="stat-counter" data-target="20">0</span>+

@@ -79,26 +79,89 @@
   }
 })();
 
-// Scroll animations extracted from code.html
+// Enhanced Scroll animations with multiple effects
 (function () {
-  const scrollElements = document.querySelectorAll('.animate-on-scroll');
-  const elementInView = (el, dividend = 1) => {
+  let scrollElements, parallaxElements;
+  let initialized = false;
+  
+  const elementInView = (el, dividend = 1.25) => {
     const elementTop = el.getBoundingClientRect().top;
     return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
   };
+  
   const displayScrollElement = (element) => {
-    element.classList.add('animated');
+    // Check if element has a specific animation type
+    const animationType = element.getAttribute('data-animation');
+    
+    if (animationType) {
+      element.classList.add('animated', animationType);
+    } else {
+      // Default animation
+      element.classList.add('animated', 'slide-up');
+    }
   };
+  
+  const handleParallax = () => {
+    if (!parallaxElements || parallaxElements.length === 0) return;
+    const scrolled = window.pageYOffset;
+    
+    parallaxElements.forEach((el) => {
+      const speed = parseFloat(el.getAttribute('data-speed')) || 0.5;
+      const yPos = -(scrolled * speed);
+      el.style.transform = `translateY(${yPos}px)`;
+    });
+  };
+  
   const handleScrollAnimation = () => {
+    if (!scrollElements || scrollElements.length === 0) return;
     scrollElements.forEach((el) => {
       if (elementInView(el, 1.25)) {
         displayScrollElement(el);
       }
     });
   };
-  window.addEventListener('scroll', handleScrollAnimation);
-  // Initial check
-  handleScrollAnimation();
+  
+  // Throttle function for better performance
+  let ticking = false;
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollAnimation();
+        handleParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  
+  const init = () => {
+    if (initialized) return;
+    initialized = true;
+    
+    // Re-query elements after partials load
+    scrollElements = document.querySelectorAll('.animate-on-scroll');
+    parallaxElements = document.querySelectorAll('.parallax');
+    
+    console.log('🎬 Animation system initialized:', {
+      scrollElements: scrollElements.length,
+      parallaxElements: parallaxElements.length
+    });
+    
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScrollAnimation();
+    handleParallax();
+  };
+  
+  // Wait for partials to load
+  window.addEventListener('partials:loaded', init);
+  
+  // Fallback for immediate load
+  if (document.readyState === 'complete') {
+    setTimeout(init, 100);
+  } else {
+    window.addEventListener('load', () => setTimeout(init, 100));
+  }
 })();
 
 // Mobile menu toggle

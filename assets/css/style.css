@@ -93,7 +93,7 @@
   font-display: swap;
 }
 
-/* Custom animations and small utilities extracted from code.html */
+/* Dynamic Scroll Animations */
 @keyframes slideInUp {
   from {
     transform: translateY(100px);
@@ -105,11 +105,104 @@
   }
 }
 
-.animate-on-scroll {
-  opacity: 0;
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.animated {
+@keyframes slideInRight {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-5deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Base state for all animated elements */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Animation types */
+.animated.slide-up {
+  animation: slideInUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animated.slide-left {
+  animation: slideInLeft 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animated.slide-right {
+  animation: slideInRight 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animated.scale-in {
+  animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animated.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.animated.rotate-in {
+  animation: rotateIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Parallax elements */
+.parallax {
+  transition: transform 0.3s ease-out;
+}
+
+/* Stagger delays for child animations */
+.animate-on-scroll[data-delay="1"] { transition-delay: 0.1s; }
+.animate-on-scroll[data-delay="2"] { transition-delay: 0.2s; }
+.animate-on-scroll[data-delay="3"] { transition-delay: 0.3s; }
+.animate-on-scroll[data-delay="4"] { transition-delay: 0.4s; }
+.animate-on-scroll[data-delay="5"] { transition-delay: 0.5s; }
+
+/* Default animated (backward compatibility) */
+.animated:not([class*="slide-"]):not([class*="scale-"]):not([class*="fade-"]):not([class*="rotate-"]) {
   animation: slideInUp 0.8s ease-out forwards;
 }
 

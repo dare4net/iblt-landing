@@ -358,29 +358,9 @@
     }
     })();
 
-    // Scroll Animation
-    const scrollElements = document.querySelectorAll(".animate-on-scroll");
-  const elementInView = (el, dividend = 1) => {
-    const elementTop = el.getBoundingClientRect().top;
-    return (
-      elementTop <=
-      (window.innerHeight || document.documentElement.clientHeight) / dividend
-    );
-  };
-  const displayScrollElement = (element) => {
-    element.classList.add("animated");
-  };
-  const handleScrollAnimation = () => {
-    scrollElements.forEach((el) => {
-      if (elementInView(el, 1.25)) {
-        displayScrollElement(el);
-      }
-    })
-  }
-    window.addEventListener("scroll", () => {
-      handleScrollAnimation();
-    });
-    handleScrollAnimation();
+    // Enhanced Scroll animations with multiple effects are now in main.js
+    // Trigger initial animation check after partials load
+    window.dispatchEvent(new Event('scroll'));
     
   }); // End of partials:loaded event listener
 </script>
